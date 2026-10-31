@@ -27,6 +27,16 @@
 7. **打 tag**：`git tag vX.Y.Z && git push origin vX.Y.Z`。
 8. **创建 GitHub Release**：标题 `vX.Y.Z`，正文按 `docs/release-notes-template.md` 填写（可直接用 `docs/release-vX.Y.Z.md`）。
 
+## CI 未激活时
+
+`release-check` workflow 模板放在 `docs/release-check.workflow.yml`。提交 `.github/workflows/` 路径需要带 `workflow` scope 的凭据（OAuth / classic PAT），普通 `repo` scope 会被 GitHub 以 404 拒绝。
+
+在 CI 激活前：
+
+- **本地等价检查**：`node scripts/release-check.mjs`（与 CI 跑的是同一脚本）；
+- **激活方式**：用网页上传该文件到 `.github/workflows/release-check.yml`，或在可访问 github.com 的环境执行 `gh auth refresh -s workflow` 后再提交；
+- 激活后无需改 `package.json`：`npm run release:check` 已指向同一脚本。
+
 ## After Release
 
 - 确认 `release-check` workflow 在 tag push 后为绿色。

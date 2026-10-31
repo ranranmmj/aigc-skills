@@ -51,3 +51,4 @@
 
 - 两个 skill 的详细规则见各自 `SKILL.md`；来源与许可见 `SOURCE.md` / `NOTICE.md`。
 - 仓库不包含凭据、私有链接、本机路径或生成产物；示例中的本地路径与项目名已脱敏。
+- CI：`release-check` workflow 模板在 `docs/release-check.workflow.yml`，提交到 `.github/workflows/` 需要 `workflow` scope 的凭据；激活前用本地命令 `node scripts/release-check.mjs` 做等价检查（见 `docs/release.md`）。
