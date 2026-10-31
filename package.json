@@ -1,0 +1,9 @@
+{
+  "name": "aigc-skills",
+  "version": "1.5.1",
+  "private": true,
+  "description": "Reusable AIGC prompt skills: multi-scenario video prompts and short-drama adaptation/review.",
+  "scripts": {
+    "release:check": "node scripts/release-check.mjs"
+  }
+}

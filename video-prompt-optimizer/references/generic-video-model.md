@@ -97,7 +97,7 @@
 
 ## 7. 与其他文件的关系
 
-- 场景结构：`scenario-router.md` + 对应场景配方。
+- 场景结构：`SKILL.md` 第三步（场景路由唯一入口）+ 对应场景配方。
 - 景别/运镜：`visual-language.md`。
 - 资产/一致性：`consistency-and-assets.md`。
 - 迭代/诊断：`iteration-and-diagnosis.md`。
