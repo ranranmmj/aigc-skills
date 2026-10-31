@@ -1,0 +1,28 @@
+# 复制到 .github/workflows/release-check.yml 后生效。
+# 提交该路径需要带 workflow scope 的凭据（OAuth / classic PAT）；普通 repo scope 会被 GitHub 以 404 拒绝。
+name: release-check
+
+on:
+  workflow_dispatch:
+  push:
+    tags:
+      - "v*"
+
+permissions:
+  contents: read
+
+jobs:
+  release-check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    strategy:
+      fail-fast: false
+      matrix:
+        node-version: [20, 22]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node-version }}
+          package-manager-cache: false
+      - run: npm run release:check
